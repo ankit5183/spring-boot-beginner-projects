@@ -1,1 +1,39 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name= "viewport" content="width=device-width,initial scale=1.0"/>
+    <link rel = "stylesheet" href = "Style.css"/>
+    <title>Amazing cards</title>
+</head>
+<body>
+  <div class = "container">
+   <div
+      class="panel active"
+      style = "background-image: url('https://images.unsplash.com/photo-1755001244508-58fcc65797ec?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzfHx8ZW58MHx8fHx8');" >
+      <h3>Search the world</h3>
+  </div>
+   <div
+       class = "panel"
+       style = "background-image: url('https://images.unsplash.com/photo-1755001244508-58fcc65797ec?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzfHx8ZW58MHx8fHx8');">
+      <h3>Search the world</h3>
+   </div>
+     <div
+         class = "panel"
+         style = "background-image: url('https://images.unsplash.com/photo-1755147047442-116a0c787457?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+         <h3>Search the world</h3>
+     </div>
+  <div
+      class = "panel"
+      style="background-image: url('https://plus.unsplash.com/premium_photo-1661963212517-830bbb7d76fc?q=80&w=786&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+     <h3>Search the world</h3>
+  </div>
+    <div
+        class="panel"
+        style="background-image: url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=820&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+        <h3>Search the world</h3>
+    </div>
+  </div>
+  <script src ="Script.js"></script>
+</body>
+</html>
