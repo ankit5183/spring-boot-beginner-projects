@@ -1,0 +1,28 @@
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
+
+@RestController
+@RequestMapping("/departments")
+public class DepartmentController {
+    private final DepartmentRepository departmentRepo;
+
+    public DepartmentController(DepartmentRepository departmentRepo) {
+        this.departmentRepo = departmentRepo;
+    }
+
+    @GetMapping
+    public List<Department> getAllDepartments() {
+        return departmentRepo.findAll();
+    }
+
+    @PostMapping
+public Department addDepartment(@RequestBody Department department) {
+    if (department.getEmployees() != null) {
+        for (Employee e : department.getEmployees()) {
+            e.setDepartment(department);
+        }
+    }
+    return departmentRepo.save(department);
+}
+
+}
