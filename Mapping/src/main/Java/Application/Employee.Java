@@ -11,13 +11,23 @@ public class Employee {
     @JoinColumn(name = "department_id")
     private Department department;
 
-    // getters & setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public Long getId() { 
+    return id; 
+}
+    public void setId(Long id) { 
+    this.id = id; 
+}
+    public String getEmpName() { 
+   return empName; 
+}
+    public void setEmpName(String empName) { 
+  this.empName = empName; 
+}
 
-    public String getEmpName() { return empName; }
-    public void setEmpName(String empName) { this.empName = empName; }
-
-    public Department getDepartment() { return department; }
-    public void setDepartment(Department department) { this.department = department; }
+    public Department getDepartment() { 
+    return department; 
+}
+    public void setDepartment(Department department) { 
+    this.department = department; 
+ }
 }
