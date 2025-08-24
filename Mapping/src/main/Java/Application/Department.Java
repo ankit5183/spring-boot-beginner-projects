@@ -9,6 +9,7 @@ public class Department {
     private String deptName;
 
     @OneToMany(mappedBy = "department", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Employee> employees;
 
     public Long getId() { 
