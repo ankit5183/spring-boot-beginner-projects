@@ -1,0 +1,13 @@
+package webmaker.webcards;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class WebcardsApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(WebcardsApplication.class, args);
+	}
+
+}
