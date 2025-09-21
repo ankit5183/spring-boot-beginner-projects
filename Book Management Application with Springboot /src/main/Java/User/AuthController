@@ -1,28 +1,38 @@
-package com.example.demo.controller;
+package Appmaker.BookStore;
 
-import com.example.demo.model.User;
-import com.example.demo.service.UserService;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-@RequestMapping("/auth")
+@Controller
 public class AuthController {
+
     private final UserService userService;
 
     public AuthController(UserService userService) {
         this.userService = userService;
     }
 
-    // Register endpoint
-    @PostMapping("/register")
-    public String register(@RequestBody User user) {
-        userService.register(user);
-        return " User registered successfully!";
+    // Show register page
+    @GetMapping("/register")
+    public String showRegisterPage() {
+        return "forward:/register.html"; // serve static page
     }
 
-    // If login is successful, Spring Security redirects here
-    @GetMapping("/login-success")
-    public String loginSuccess() {
-        return "Login Successful!";
+    // Handle registration
+    @PostMapping("/register")
+    public String register(@RequestParam String username, @RequestParam String password) {
+        User user = new User();
+        user.setUsername(username);
+        user.setPassword(password);
+        userService.register(user);
+
+        // after register → go to login
+        return "redirect:/login";
+    }
+
+    // Show login page
+    @GetMapping("/login")
+    public String showLoginPage() {
+        return "forward:/login.html"; // serve static login page
     }
 }
