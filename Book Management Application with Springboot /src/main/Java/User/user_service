@@ -1,7 +1,5 @@
-package com.example.demo.service;
+package Appmaker.BookStore;
 
-import com.example.demo.model.User;
-import com.example.demo.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -15,14 +13,11 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    // Register new user
     public User register(User user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setRole("ROLE_USER");
+        user.setPassword(passwordEncoder.encode(user.getPassword())); // encrypt password
         return userRepository.save(user);
     }
 
-    // Find user by username (needed for login)
     public User findByUsername(String username) {
         return userRepository.findByUsername(username).orElse(null);
     }
