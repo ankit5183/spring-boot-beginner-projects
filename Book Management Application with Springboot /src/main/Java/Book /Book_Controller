@@ -1,32 +1,46 @@
-package com.example.bookstore;
+package Appmaker.BookStore;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
-@RestController
-@RequestMapping("/api/books")
+@Controller
 public class BookController {
 
-    private final BookRepository repo;
-    public BookController(BookRepository repo) { this.repo = repo; }
+    private final BookRepository bookRepository;
 
-    @GetMapping
-    public List<Book> getBooks() { return repo.findAll(); }
-
-    @PostMapping
-    public Book addBook(@RequestBody Book book) { return repo.save(book); }
-
-    @PutMapping("/{id}")
-    public Book updateBook(@PathVariable Long id, @RequestBody Book book) {
-        Book existing = repo.findById(id).orElseThrow();
-        existing.setTitle(book.getTitle());
-        existing.setAuthor(book.getAuthor());
-        existing.setPrice(book.getPrice());
-        existing.setQuantity(book.getQuantity());
-        return repo.save(existing);
+    public BookController(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
     }
 
-    @DeleteMapping("/{id}")
-    public void deleteBook(@PathVariable Long id) { repo.deleteById(id); }
-}
+    // Home page → list all books
+    @GetMapping("/")
+    public String home(Model model) {
+        List<Book> books = bookRepository.findAll();
+        model.addAttribute("books", books);
+        return "forward:/index.html"; // serve frontend page
+    }
 
+    // API for listing books (useful if Angular/JS fetches data)
+    @GetMapping("/api/books")
+    @ResponseBody
+    public List<Book> getBooks() {
+        return bookRepository.findAll();
+    }
+
+    // API for adding a book
+    @PostMapping("/api/books")
+    @ResponseBody
+    public Book addBook(@RequestBody Book book) {
+        return bookRepository.save(book);
+    }
+
+    // API for deleting a book
+    @DeleteMapping("/api/books/{id}")
+    @ResponseBody
+    public void deleteBook(@PathVariable Long id) {
+        bookRepository.deleteById(id);
+    }
+}
