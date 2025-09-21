@@ -1,1 +1,32 @@
+package com.example.bookstore;
+
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/books")
+public class BookController {
+
+    private final BookRepository repo;
+    public BookController(BookRepository repo) { this.repo = repo; }
+
+    @GetMapping
+    public List<Book> getBooks() { return repo.findAll(); }
+
+    @PostMapping
+    public Book addBook(@RequestBody Book book) { return repo.save(book); }
+
+    @PutMapping("/{id}")
+    public Book updateBook(@PathVariable Long id, @RequestBody Book book) {
+        Book existing = repo.findById(id).orElseThrow();
+        existing.setTitle(book.getTitle());
+        existing.setAuthor(book.getAuthor());
+        existing.setPrice(book.getPrice());
+        existing.setQuantity(book.getQuantity());
+        return repo.save(existing);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteBook(@PathVariable Long id) { repo.deleteById(id); }
+}
 
