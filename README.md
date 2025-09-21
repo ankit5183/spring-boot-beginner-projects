@@ -18,4 +18,20 @@ This project is a basic web application built using Spring Boot. It demonstrates
 * Thymeleaf (for HTML templating)
 * Maven or Gradle
 * HTML/CSS (for frontend)
-
+# 3 Book Manangement Application with Springboot
+The app allows users to register, log in, add, update, and delete books. Authentication is handled with Spring Security + JWT. 
+🚀 Features
+User registration & login (with password encryption using BCrypt)
+*JWT Authentication for stateless security
+*CRUD operations for books:
+  *Add a new book
+  *Update book details
+  *Delete book
+  *List all books
+*RESTful API design
+🛠️ Technology used
+*Spring Boot 3.x
+*Spring Security 6 (JWT Authentication)
+*Spring Data JPA (Hibernate)
+*H2 Database (in-memory) / MySQL (optional)
+*Maven
